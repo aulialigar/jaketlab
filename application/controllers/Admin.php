@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('m_admin');
 	}
+	//komen tes
 
 	public function index()
 	{
