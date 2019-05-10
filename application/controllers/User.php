@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller
 {
-	
 	function __construct()
 	{
 		parent::__construct();
@@ -12,8 +11,8 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		$this->data['main_view'] = 'user/v_index';
-		$this->load->view('user/v_template',$this->data);
+		if ($this->session->)
+		// $this->data['main_view'] = 'user/v_index';
+		// $this->load->view('user/v_template',$this->data);
 	}
 }
-?>
