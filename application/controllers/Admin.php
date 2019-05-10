@@ -18,6 +18,7 @@ class Admin extends CI_Controller {
 			redirect('admin/login');
 		}	
 	}
+	//ini komen salma
 
 	public function admin()
 	{
