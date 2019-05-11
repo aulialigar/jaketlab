@@ -11,12 +11,8 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('userlevel') == 'mahasiswa') {
-			$this->data['tampilan_user'] = 'user/v_dashboard';
+			$this->data['tampilan_user'] = 'user/v_index';
 			$this->load->view('user/v_template', $this->data);
-		}else{
-			redirect('user/login');
-		}	
 	}
 
 	public function login()
@@ -25,26 +21,29 @@ class User extends CI_Controller
 			redirect('user');
 		}else{
 			if ($this->input->post('submit')) {
-				$this->form_validation->set_rules('username', 'Username', 'trim|required');
-				$this->form_validation->set_rules('password', 'Password', 'trim|required');
+				$this->form_validation->set_rules('nim', 'NIM', 'trim|required');
+				$this->form_validation->set_rules('pass', 'Password', 'trim|required');
 
 				if ($this->form_validation->run() == TRUE)
 					{
-						if ($this->m_user->user_cek() == TRUE){
+						if ($this->m_user->login_cek() == TRUE){
 							redirect('user');
 						} else {
 							$data['notif'] = 'Login gagal';
-							$this->load->view('user/v_login', $data);
+							$data['tampilan_user'] = 'user/v_login';
+							$this->load->view('user/v_template', $data);
 						}
 					// jika sukses
 
 				} else {
 					// jika gagal
 					$data['notif'] = validation_errors();
-					$this->load->view('user/v_login', $data);
+					$data['tampilan_user'] = 'user/v_login';
+					$this->load->view('user/v_template', $data);
 				}
 			}else{
-				$this->load->view('user/v_login');
+				$data['tampilan_user'] = 'user/v_login';
+				$this->load->view('user/v_template', $data);
 			}
 		}
 	}
