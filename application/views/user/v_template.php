@@ -422,7 +422,7 @@
 		<div class="container">
 			<div class="row">
 			
-				<div class="col-sm-6 col-lg-6 p-b-50">
+				<div class="col-sm-6 col-lg-5 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
 						Contact Us
 					</h4>
