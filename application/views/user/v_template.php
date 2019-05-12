@@ -43,6 +43,7 @@
 	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
+		<link rel="shortcut icon" href="assets/images/icons/favicon-it.ico">
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 

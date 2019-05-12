@@ -1,4 +1,12 @@
 <section>
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/util.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.css">
+
 	<div class="container">	
 		
 			<div class="col-sm-9 col-md-6 col-lg-5 mx-auto col-md-push-3" style="border: 3px solid grey; margin-bottom:20px;">	
