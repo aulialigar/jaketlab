@@ -305,6 +305,48 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function transaksi()
+	{
+		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('userlevel') == 'admin') {
+			// konfirmasi tansaksi
+			if ($this->uri->segment(3) == 'confirm' && $this->uri->segment(4)) {
+				if ($this->m_admin->confirmOrder($this->uri->segment(4))) {
+					$this->session->set_flashdata('notif', 'Berhasil dikonfirmasi');
+					redirect('admin');
+				} else {
+					$this->session->set_flashdata('notif', 'Gagal dikonfirmasi');
+					redirect('admin');
+				}
+			}
+			// reject tansaksi
+			if ($this->uri->segment(3) == 'reject' && $this->uri->segment(4)) {
+				if ($this->m_admin->rejectOrder($this->uri->segment(4))) {
+					$this->session->set_flashdata('notif', 'Berhasil direject');
+					redirect('admin');
+				} else {
+					$this->session->set_flashdata('notif', 'Gagal direject');
+					redirect('admin');
+				}
+			}
+			// hapus transaksi
+			if ($this->uri->segment(3) == 'remove' && $this->uri->segment(4)) {
+				if ($this->m_admin->hapusOrder($this->uri->segment(4))) {
+					$this->session->set_flashdata('notif', 'Berhasil dihapus');
+					redirect('admin');
+				} else {
+					$this->session->set_flashdata('notif', 'Gagal dihapus');
+					redirect('admin');
+				}
+			}
+			$transaksi = $this->m_admin->get_transaksi();
+			$data['tampilan_admin']= 'admin/v_transaksi';
+			$data['transaksi'] = $transaksi;
+			$this->load->view('admin/v_template', $data);
+		} else {
+			redirect('admin/login');
+		}
+	}
+
 }
 
 /* End of file Admin.php */

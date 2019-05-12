@@ -5,7 +5,7 @@
         <div class="alert alert-danger"><?= $this->session->flashdata('notif'); ?></div>
       <?php } ?>
       <h1>
-        Dashboard
+        Mahasiswa
         <small>Jaket Lab</small>
       </h1>
     </section>

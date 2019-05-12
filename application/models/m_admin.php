@@ -204,6 +204,46 @@ class M_admin extends CI_Model {
 		}	
 	}
 
+	public function confirmOrder($id)
+	{
+		$this->db->where('id_trans', $id)->update('transaksi', [ 'status' => 'TERKIRIM' ]);
+		if ($this->db->affected_rows() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function rejectOrder($id)
+	{
+		$this->db->where('id_trans', $id)->update('transaksi', [ 'status' => 'DITOLAK' ]);
+		if ($this->db->affected_rows() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function hapusOrder($kd)
+	{
+		$this->db->where('id_trans', $kd)->delete('transaksi');
+		$this->db->where('id_trans', $kd)->delete('detail');
+
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		}else{
+			return FALSE;
+		}	
+	}
+
+	public function get_transaksi()
+	{
+		return $this->db->select('*, mahasiswa.id_mahasiswa')
+										->from('transaksi')
+										->join('mahasiswa', 'mahasiswa.id_mahasiswa = transaksi.id_mahasiswa', 'inner')
+										->get()->result();
+	}
+
 }
 
 /* End of file m_admin.php */
