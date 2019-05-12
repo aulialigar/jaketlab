@@ -76,6 +76,7 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</section>
 
 <hr color="green">
@@ -103,3 +104,6 @@
         </div>
 	
 <!-- Product -->
+=======
+	</section>
+>>>>>>> 0629eb04a4c252f94a3060e29d7629f69dad7fb3
