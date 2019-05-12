@@ -1,8 +1,8 @@
- <section>
+<section>
 	<div class="container">	
 		
 			<div class="col-sm-9 col-md-6 col-lg-5 mx-auto col-md-push-3" style="border: 3px solid grey; margin-bottom:20px;">	
-				<div class="text-center" style="margin-bottom:20px;"><h2><span class="label label-info">Formulir Pemesanan Jaket Lab</span></h2> </div>
+				<div class="text-center" style="margin-bottom:40px;"><h2><span class="label label-info">Formulir Pemesanan Jaket Lab</span></h2></div>
 				<form>
   					<div class="form-group">
 					  <i class="fa fa-user"></i>
@@ -42,6 +42,23 @@
         					<option value="L">L</option>
         					<option value="M">M</option>
 							<option value="S">S</option>
+      					</select>
+    				</div>
+
+
+					<div class="form-group">
+					<i class="fa fa-graduation-cap"></i>
+						<label for="angkatan">| angkatan:</label>
+					</div>
+
+
+  
+    				<div class="form-group">
+      					<select class="form-control">
+							<option value="pilih">pilih</option>
+        					<option value="ganjil">ganjil</option>
+        					<option value="genap">genap</option>
+        					
       					</select>
     				</div>
  
