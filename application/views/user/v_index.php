@@ -133,7 +133,7 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
+
 <hr color="green">
 	<!-- Banner -->
 	<div class="container">
@@ -159,6 +159,6 @@
         </div>
 	
 <!-- Product -->
-=======
+
 	</section>
->>>>>>> 0629eb04a4c252f94a3060e29d7629f69dad7fb3
+
