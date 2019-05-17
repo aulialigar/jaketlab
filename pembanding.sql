@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2019 at 10:59 AM
+-- Generation Time: May 18, 2019 at 12:23 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -53,17 +53,31 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `id_hakakses`) VALUES
 CREATE TABLE `barang` (
   `id_barang` int(11) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `ukuran` varchar(3) NOT NULL,
-  `foto` text NOT NULL
+  `stok` int(11) NOT NULL,
+  `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga`, `ukuran`, `foto`) VALUES
-(1, 'Jaket Lab Abu Abu', 150000, 'XL', 'assets/images/adek.png');
+INSERT INTO `barang` (`id_barang`, `nama_barang`, `stok`, `harga`) VALUES
+(1, 'Jaket Lab Abu Abu', 0, 150000),
+(2, 'Jaket Lab Hitam', 12, 150000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail`
+--
+
+CREATE TABLE `detail` (
+  `id_detail` int(11) NOT NULL,
+  `id_trans` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,6 +100,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nim`, `pass`, `nama_mhs`, `jenis_kelamin`, `no_telp`, `alamat`) VALUES
+(1, 1, 'a', 'aaaa', '2', '089', 'jl raya'),
 (188, 201810370311188, 'jalu188', 'Jalu Nusantoro', 'L', '082142738891', 'Jl. Karya Wiguna'),
 (201, 201810370311201, 'tutus201', 'Bariyatus Diyah Nurlaili', 'P', '085853631078', 'Jl. Tirto Utomo'),
 (206, 201810370311206, 'andika206', 'Andika Surya Listya Yudhana', 'L', '081216225880', 'Jl. Belakang RSSA'),
@@ -93,7 +108,8 @@ INSERT INTO `mahasiswa` (`id_mahasiswa`, `nim`, `pass`, `nama_mhs`, `jenis_kelam
 (219, 201810370311219, 'piti219', 'Annisa Fitria Nurjannah', 'P', '081999939599', 'Jl. Tirto Utomo'),
 (223, 201810370311223, 'riya223', 'Nuriya Mulyati', 'P', '082248576084', 'Jl. Tirto Utomo'),
 (225, 201810370311225, 'hanif226', 'Hanif Varianto Warman', 'L', '082234572119', 'Perum. Bukit Cemara Tujuh'),
-(230, 201810370311230, 'faldo230', 'Faldo Fajri Afrinanto', 'L', '082234694154', 'Jl. S. Supriadi ');
+(230, 201810370311230, 'faldo230', 'Faldo Fajri Afrinanto', 'L', '082234694154', 'Jl. S. Supriadi '),
+(231, 201810370311918, 'as', 'Aaaa', 'P', '08555555555555', 'Jl. Danau Ranau');
 
 -- --------------------------------------------------------
 
@@ -114,6 +130,27 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_trans`, `id_mahasiswa`, `id_barang`, `tgl`, `jml`, `total`, `bukti`, `keterangan`, `status`) VALUES
+(111, 188, 1, '2019-05-08', 2, 300000, '', 'aaa', 'PROSES');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trans_temp`
+--
+
+CREATE TABLE `trans_temp` (
+  `id_temp` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `id_mhs` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
 -- Indexes for dumped tables
 --
 
@@ -130,6 +167,12 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
+-- Indexes for table `detail`
+--
+ALTER TABLE `detail`
+  ADD PRIMARY KEY (`id_detail`);
+
+--
 -- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -144,6 +187,12 @@ ALTER TABLE `transaksi`
   ADD KEY `id_barang` (`id_barang`);
 
 --
+-- Indexes for table `trans_temp`
+--
+ALTER TABLE `trans_temp`
+  ADD PRIMARY KEY (`id_temp`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -153,6 +202,11 @@ ALTER TABLE `transaksi`
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1613;
 --
+-- AUTO_INCREMENT for table `detail`
+--
+ALTER TABLE `detail`
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -161,7 +215,12 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_trans` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_trans` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+--
+-- AUTO_INCREMENT for table `trans_temp`
+--
+ALTER TABLE `trans_temp`
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
