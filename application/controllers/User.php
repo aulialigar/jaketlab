@@ -59,4 +59,22 @@ class User extends CI_Controller
 		$this->load->view('user/v_template', $this->data);	
 	}
 
+	public function info()
+	{
+		$this->data['tampilan_user'] = 'user/v_info';
+		$this->load->view('user/v_template', $this->data);	
+	}
+
+	public function about()
+	{
+		$this->data['tampilan_user'] = 'user/v_about';
+		$this->load->view('user/v_template', $this->data);	
+	}
+
+	public function contact()
+	{
+		$this->data['tampilan_user'] = 'user/v_contact';
+		$this->load->view('user/v_template', $this->data);	
+	}
+
 }

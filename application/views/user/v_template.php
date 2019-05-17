@@ -63,15 +63,15 @@
 							</li>
 
 							<li>
-								<a href="product.html">Info</a>
+								<a href="<?= base_url('index.php/user/info'); ?>">Info</a>
 							</li>
 
 							<li>
-								<a href="shoping-cart.html">About Us</a>
+								<a href="<?= base_url('index.php/user/about'); ?>">About Us</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Contact us</a>
+								<a href="<?= base_url('index.php/user/contact'); ?>">Contact us</a>
 							</li>
 
 							<?php if ($this->session->userdata('logged_in') == TRUE) { ?>
@@ -301,7 +301,7 @@
 
 						<li class="p-b-10">
 						<a href="#" class="stext-107 hov-cl1 trans-04" color: green>
-						email1: 
+						Email1: 
 							</a>
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
 							lab.informatika@umm.ac.id 
@@ -310,7 +310,7 @@
 
 						<li class="p-b-10">
 						<a href="#" class="stext-107 hov-cl1 trans-04" color: green>
-						email2: 
+						Email2: 
 							</a>
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
 							 lab.informatika.umm@gmail.com 
@@ -341,25 +341,6 @@
 							<i class="fa fa-pinterest-p"></i>
 						</a>
 					</div>
-				</div>
-
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Newsletter
-					</h4>
-
-					<form>
-						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
-							<div class="focus-input1 trans-04"></div>
-						</div>
-
-						<div class="p-t-18">
-							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Subscribe
-							</button>
-						</div>
-					</form>
 				</div>
 			</div>
 
