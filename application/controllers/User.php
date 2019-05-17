@@ -54,4 +54,9 @@ class User extends CI_Controller
 		redirect('user');
 	}
 
+	public function pesan(){
+		$this->data['tampilan_user'] = 'user/v_form';
+		$this->load->view('user/v_template', $this->data);	
+	}
+
 }

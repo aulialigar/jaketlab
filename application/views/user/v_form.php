@@ -1,23 +1,29 @@
-<section>
-
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/util.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/main.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.css">
-
-	<div class="container">	
+<br>
+<br>
+<br>
+<section style="margin-top:50px; margin-bottom:50px;padding:50px">
+<head>
+<link rel="stylesheet"  href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"  href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.css">
+<link rel="stylesheet"  href="<?php echo base_url(); ?>assets/css/util.css">
+<link rel="stylesheet"  href="<?php echo base_url(); ?>assets/css/main.css">
+<link rel="stylesheet"  href="<?php echo base_url(); ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"  href="<?php echo base_url(); ?>assets/fonts/font-awesome-4.7.0/css/font-awesome.css">
+</head>
+	<div class="container" >	
 		
-			<div class="col-sm-9 col-md-6 col-lg-5 mx-auto col-md-push-3" style="border: 3px solid grey; margin-bottom:20px;">	
-				<div class="text-center" style="margin-bottom:40px;"><h2><span class="label label-info">Formulir Pemesanan Jaket Lab</span></h2></div>
-				<form>
+			<div class="col-sm-9 col-md-6 col-lg-5 mx-auto " style="border: 3px solid grey; margin-bottom:20px; height:900px">	
+				<div class="text-center" style="margin-bottom:5px;"><h2><span class="label label-info">Formulir Pemesanan Jaket Lab</span></h2></div>
+				
+				<form style="padding:20px;">
   					<div class="form-group">
 					  <i class="fa fa-user"></i>
   					  <label for="Nama">| Nama:</label>
   						  <input type="text" class="form-control" id="Nama" placeholder="Nama">
  					 </div>
 
+				   
+				   
 				    <div class="form-group">
 					<i class="fa fa-id-card"></i>
   					  <label for="Nim">| Nim:</label>
@@ -72,6 +78,7 @@
  
  
 					<div class="form-group">
+					
 					<p>
 					<i class="fa fa-upload"></i>
 					| Upload bukti pembayaran
@@ -86,10 +93,11 @@
 					</div>
 
 
-
+						<div class="form-group">
   						<button type="submit" class="btn btn-primary pull-right" style="margin-bottom:20px; margin-top:20px;">Pesan</button>
+						</div>
 				</form>
 				
-		</div>	
+			</div>	
 	</div>
 </section>
