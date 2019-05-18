@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2019 at 12:23 AM
+-- Generation Time: May 18, 2019 at 03:01 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -62,7 +62,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `stok`, `harga`) VALUES
-(1, 'Jaket Lab Abu Abu', 0, 150000),
+(1, 'Jaket Lab Abu Abu', 40, 150000),
 (2, 'Jaket Lab Hitam', 12, 150000);
 
 -- --------------------------------------------------------
@@ -119,9 +119,10 @@ INSERT INTO `mahasiswa` (`id_mahasiswa`, `nim`, `pass`, `nama_mhs`, `jenis_kelam
 
 CREATE TABLE `transaksi` (
   `id_trans` int(11) NOT NULL,
-  `id_mahasiswa` int(11) NOT NULL,
+  `nim` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
   `tgl` date NOT NULL,
+  `ukuran` char(4) NOT NULL,
   `jml` int(11) NOT NULL,
   `total` int(11) NOT NULL,
   `bukti` text NOT NULL,
@@ -133,8 +134,10 @@ CREATE TABLE `transaksi` (
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_trans`, `id_mahasiswa`, `id_barang`, `tgl`, `jml`, `total`, `bukti`, `keterangan`, `status`) VALUES
-(111, 188, 1, '2019-05-08', 2, 300000, '', 'aaa', 'PROSES');
+INSERT INTO `transaksi` (`id_trans`, `nim`, `id_barang`, `tgl`, `ukuran`, `jml`, `total`, `bukti`, `keterangan`, `status`) VALUES
+(111, 188, 1, '2019-05-08', 'XL', 2, 300000, '', 'aaa', 'PROSES'),
+(112, 1, 1, '0000-00-00', 'L', 2, 0, '', 'sadasd', ''),
+(113, 2147483647, 2, '0000-00-00', 'XL', 2, 0, '', 'fsdsdf', 'Menunggu Konfirmasi');
 
 -- --------------------------------------------------------
 
@@ -183,8 +186,9 @@ ALTER TABLE `mahasiswa`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_trans`),
-  ADD KEY `id_mahasiswa` (`id_mahasiswa`),
-  ADD KEY `id_barang` (`id_barang`);
+  ADD KEY `id_mahasiswa` (`nim`),
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_mahasiswa_2` (`nim`);
 
 --
 -- Indexes for table `trans_temp`
@@ -215,7 +219,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_trans` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id_trans` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 --
 -- AUTO_INCREMENT for table `trans_temp`
 --
@@ -229,7 +233,6 @@ ALTER TABLE `trans_temp`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_mahasiswa`) REFERENCES `mahasiswa` (`id_mahasiswa`) ON DELETE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
