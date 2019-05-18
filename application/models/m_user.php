@@ -28,6 +28,32 @@ class M_user extends CI_Model {
 		}
 	}	
 
+	public function get_stock($stock)
+	{
+		return $this->db->where('stock', $stock)->get('barang')->row();
+	}
+
+	public function insert_pesan()
+	{
+		$data = array(
+				'id_trans' => NULL,
+				'nim' => $this->input->post('nim'),
+				'id_barang' => $this->input->post('barang'),
+				'ukuran' => $this->input->post('ukuran'),
+				'jml' => $this->input->post('jml'),
+				'keterangan' => $this->input->post('keterangan'),
+				'STATUS' => 'Menunggu Konfirmasi'
+			);
+
+		$this->db->insert('transaksi', $data);
+
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		}else{
+			return FALSE;
+		}	
+	}
+
 }
 
 /* End of file m_user.php */
