@@ -12,7 +12,7 @@
 </head>
 	<div class="container" >	
 		
-			<div class="col-sm-9 col-md-6 col-lg-5 mx-auto " style="border: 3px solid grey; margin-bottom:20px; height:600px">	
+			<div class="col-sm-9 col-md-6 col-lg-5 mx-auto " style="border: 3px solid grey; margin-bottom:20px; height:750px">	
 				<div class="text-center" style="margin-bottom:5px;"><h2><span class="label label-info">Formulir Pemesanan Jaket Lab</span></h2></div>
 				<form style="padding:20px;" action="<?= base_url('index.php/user/order') ;?>" method="POST">
 				<?php if (!empty($notif)) { ?>
