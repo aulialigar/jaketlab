@@ -208,10 +208,10 @@ class Admin extends CI_Controller {
 			if ($this->uri->segment(3) == 'insert') {
 				if ($this->input->post('sbm')) {
 					$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-					$this->form_validation->set_rules('ukuran', 'Ukuran', 'trim|required');
+					$this->form_validation->set_rules('stok', 'Stok', 'trim|required');
 					$this->form_validation->set_rules('harga', 'Harga', 'trim|required');
 
-						if ($this->form_validation->run() == TRUE) {
+						/*if ($this->form_validation->run() == TRUE) {
 							$kd = $this->uri->segment(4);
 								$config['upload_path'] = './assets/images/';
 								$config['allowed_types'] = 'jpg|png|jpeg';
@@ -232,6 +232,19 @@ class Admin extends CI_Controller {
 										$this->session->set_flashdata('notif', $this->upload->display_errors());
 										redirect('admin/barang');
 									}
+						}else{
+							$this->session->set_flashdata('notif', validation_errors());
+							redirect('admin/barang');
+						}*/
+
+						if ($this->form_validation->run() == TRUE) {
+								if ($this->m_admin->tambahbarang() == TRUE) {
+									$this->session->set_flashdata('notif', 'Data Berhasil ditambahkan');
+									redirect('admin/barang');
+								}else{
+									$this->session->set_flashdata('notif', 'Data Gagal ditambahkan');
+									redirect('admin/barang');
+								}
 						}else{
 							$this->session->set_flashdata('notif', validation_errors());
 							redirect('admin/barang');
@@ -256,11 +269,11 @@ class Admin extends CI_Controller {
 			if ($this->uri->segment(3) == 'update' && $this->uri->segment(4)) {
 				if ($this->input->post('sbm')) {
 					$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-					$this->form_validation->set_rules('ukuran', 'Ukuran', 'trim|required');
+					$this->form_validation->set_rules('stok', 'Stok', 'trim|required');
 					$this->form_validation->set_rules('harga', 'Harga', 'trim|required');
 
 						if ($this->form_validation->run() == TRUE) {
-							$kd = $this->uri->segment(4);
+							/*$kd = $this->uri->segment(4);
 								$config['upload_path'] = './assets/images/';
 								$config['allowed_types'] = 'jpg|png|jpeg';
 								$config['max_size'] = '2000';
@@ -281,7 +294,7 @@ class Admin extends CI_Controller {
 										$this->session->set_flashdata('notif', $this->upload->display_errors());
 										redirect('admin/barang');
 									}
-								} else {
+								} else {*/
 									if ($this->m_admin->editbarang($kd) == TRUE) {
 											$this->session->set_flashdata('notif', 'Update Berhasil');
 											redirect('admin/barang');
@@ -289,7 +302,7 @@ class Admin extends CI_Controller {
 											$this->session->set_flashdata('notif', 'Update Gagal');
 											redirect('admin/barang');
 										}
-								}
+								/*}*/
 						}else{
 							$this->session->set_flashdata('notif', validation_errors());
 							redirect('admin/barang');

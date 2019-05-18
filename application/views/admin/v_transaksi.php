@@ -29,10 +29,11 @@
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Nama Pelanggan</th>
-                    <th>Tanggal Beli</th>
-                    <th>Total</th>
-                    <!-- <th>Keterangan</th> -->
+                    <th>NIM</th>
+                    <th>Id Barang</th>
+                    <th>Ukuran</th>
+                    <th>Jumlah</th>
+                    <th>Keterangan</th>
                     <th>Status</th>
                     <th>Aksi</th>
                   </tr>
@@ -41,10 +42,11 @@
                     <?php foreach ($transaksi as $t) { ?>
                       <tr>
                         <td><?= $t->id_trans ;?></td>
-                        <td><?= $t->nama_mhs ;?></td>
-                        <td><?= $t->tgl ;?></td>
-                        <td><?= $t->total ;?></td>
-                        <!-- <td><?= $t->KETERANGAN ;?></td> -->
+                        <td><?= $t->nim ;?></td>
+                        <td><?= $t->id_barang ;?></td>
+                        <td><?= $t->ukuran ;?></td>
+                        <td><?= $t->jml ;?></td>
+                        <td><?= $t->keterangan ;?></td>
                         <td><?= $t->status ;?></td>
                         <td>
                           <a href="#" class="btn btn-info btn-sm" data-toggle="modal" onclick="lihatTransaksi(<?php echo $t->id_trans; ?>)"><i class="glyphicon glyphicon-search"></i> Lihat</a>
@@ -90,24 +92,40 @@
                       <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Detail Pesanan</h4>
                   </div>
-                  <div class="modal-body" >
-                    <table class="table table-bordered table-striped">
-            <thead>
-            <tr>  
-              <th class="t-head">No</th>
-              <th class="t-head head-it ">Menu</th>
-              <th class="t-head">Harga</th>
-              <th class="t-head">Jumlah</th>
-              <th class="t-head">Total</th>
-            </tr>
-            </thead>
-            <tbody id="body_transaksi">
-              
-            </tbody>
-            </table>
+                  <div class="modal-body">
+                    <form  id="fdm" role="form" action="<?= base_url('index.php/admin/transaksi/update/')?>" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="nm_kp">ID Transaksi</label>
+                      <input type="text" class="form-control" value="" id="id_tr" placeholder="ID Transaksi" name="id_trans">
+                    </div>
+                    <div class="form-group">
+                      <label for="stc">NIM</label>
+                      <input type="text" class="form-control" value="" id="nim" placeholder="NIM" name="nim">
+                    </div>
+                    <div class="form-group">
+                      <label for="nm_kp">ID Barang</label>
+                      <input type="text" class="form-control" value="" id="id_br" placeholder="ID Transaksi" name="id_br">
+                    </div>
+                    <div class="form-group">
+                      <label for="ukr">Ukuran</label>
+                      <input type="text" class="form-control" value="" id="ukr" placeholder="Ukuran" name="ukuran">
+                    </div>
+                    <div class="form-group">
+                      <label for="jml">Jumlah</label>
+                      <input type="text" class="form-control" value="" id="jml" placeholder="Jumlah" name="jumlah">
+                    </div>
+                    <div class="form-group">
+                      <label for="ktr">Keterangan</label>
+                      <input type="text" class="form-control" value="" id="ktr" placeholder="Keterangan" name="keterangan">
+                    </div>
+                    <div class="form-group">
+                      <label for="sts">Status</label>
+                      <input type="text" class="form-control" value="" id="sts" placeholder="Status" name="status">
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" name="sbm" value="Save Changes">
                   </div>
                   </form>
                 </div>

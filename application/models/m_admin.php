@@ -99,9 +99,9 @@ class M_admin extends CI_Model {
 		$data = array(
 				'id_barang' => NULL,
 				'nama_barang' => $this->input->post('nama'),
-				'harga' => $this->input->post('harga'),
-				'ukuran' => $this->input->post('ukuran'),
-				'foto' => 'assets/images/'.$foto['file_name']
+				'stok' => $this->input->post('stok'),
+				'harga' => $this->input->post('harga')
+				/*'foto' => 'assets/images/'.$foto['file_name']*/
 			);
 
 		$this->db->insert('barang', $data);
@@ -113,16 +113,17 @@ class M_admin extends CI_Model {
 		}	
 	}
 
-	public function editbarang($id, $foto = "")
+	public function editbarang($id /*$foto = ""*/)
 	{
 		$data = array(
 				'nama_barang' => $this->input->post('nama'),
-				'harga' => $this->input->post('harga'),
-				'ukuran' => $this->input->post('ukuran')
+				'stok' => $this->input->post('stok'),
+				'harga' => $this->input->post('harga')
+				/*'ukuran' => $this->input->post('ukuran')*/
 			);
-		if ($foto != "") {
+		/*if ($foto != "") {
 			$data['foto'] = 'assets/images/'.$foto;
-		}
+		}*/
 		$this->db->where('id_barang', $id)
 						 ->update('barang', $data);
 
@@ -238,10 +239,7 @@ class M_admin extends CI_Model {
 
 	public function get_transaksi()
 	{
-		return $this->db->select('*, mahasiswa.id_mahasiswa')
-										->from('transaksi')
-										->join('mahasiswa', 'mahasiswa.id_mahasiswa = transaksi.id_mahasiswa', 'inner')
-										->get()->result();
+		return $this->db->get('transaksi')->result();
 	}
 
 }
